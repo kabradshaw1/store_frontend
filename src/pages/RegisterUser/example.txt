@@ -1,0 +1,57 @@
+        {/* <Form.Group as={Col} md="3">
+          <Form.Label>Gender</Form.Label>
+          <Form.Select {...register('gender')}>
+            <option>Choose</option>
+            <option value="male">male</option>
+            <option value="female">female</option>
+            <option value="other">other</option>
+          </Form.Select>
+        </Form.Group> */}
+                {/* <Form.Group as={Col} md="3">
+          <Form.Label>Age</Form.Label>
+          <Controller
+            name="age"
+            control={control}
+            rules={{max:30, min: 20}}
+            render={({field}) => (
+              <Form.Control 
+                isInvalid={errors.age ? true: undefined}
+                type="text" 
+                {...field} 
+              />
+            )}
+          />
+          {errors.age?.type === "min" && (
+            <Form.Control.Feedback type="invalid">
+              Minimum age is 20.
+            </Form.Control.Feedback>
+          )}
+          {errors.age?.type === "max" && (
+            <Form.Control.Feedback type="invalid">
+              Maximum age is 30
+            </Form.Control.Feedback>
+          )}
+          
+        </Form.Group> */}
+
+                  {/* <Form.Label>First name</Form.Label> */}
+          {/* <Controller 
+            name="email" 
+            control={control} 
+            rules={{required:true}} 
+            render={({field}) => (
+              <Form.Control 
+                isInvalid={errors.username ? true: undefined} 
+                type="text" {...field} 
+                placeholder="First name"
+              />
+            )}
+          /> */}
+
+                <Row className="mb-3">
+        <Form.Group as={Col} md="3">
+          <Form.Control.Feedback type="invalid">
+            name is required.
+          </Form.Control.Feedback>
+        </Form.Group>
+      </Row>

@@ -1,0 +1,20 @@
+name: React Testing and Deploying
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  test:
+    name: Tests
+    runs-on: ubuntu-22.04.2
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Installing dependencies
+        run: npm run install
+
+      - name: Running Test
+        run: npm run test

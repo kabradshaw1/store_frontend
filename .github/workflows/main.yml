@@ -16,7 +16,7 @@ jobs:
         with:
           username: ${{ secrets.DOCKERHUB_USER }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
-      - name: CHeckout
+      - name: Checkout
         uses: actions/checkout@v2
 
       - name: Installing dependencies

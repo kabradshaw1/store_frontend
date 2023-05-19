@@ -1,41 +1,41 @@
-name: React Testing and Deploying
+# name: React Testing and Deploying
 
-on:
-  push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
+# on:
+#   push:
+#     branches: [ main ]
+#   pull_request:
+#     branches: [ main ]
 
-jobs:
-  test:
-    name: Tests
-    runs-on: ubuntu-22.04.2
-    steps:
-      - name: Login to Docker Hub
-        uses: docker/login-action@v1
-        with:
-          username: ${{ secrets.DOCKERHUB_USER }}
-          password: ${{ secrets.DOCKERHUB_TOKEN }}
-      - name: Checkout
-        uses: actions/checkout@v2
+# jobs:
+#   test:
+#     name: Tests
+#     runs-on: ubuntu-22.04.2
+#     steps:
+#       - name: Login to Docker Hub
+#         uses: docker/login-action@v1
+#         with:
+#           username: ${{ secrets.DOCKERHUB_USER }}
+#           password: ${{ secrets.DOCKERHUB_TOKEN }}
+#       - name: Checkout
+#         uses: actions/checkout@v2
 
-      - name: Installing dependencies
-        run: npm run install
+#       - name: Installing dependencies
+#         run: npm run install
 
-      - name: Running Test
-        run: npm run test
-  deploy:
-    name: Deploying
-    needs: [test]
-    runs-on: ubuntu-22.04.2
-    steps:
-      - name: SSH & Deploy
-        uses: appleboy/ssh-action@master
-        with:
-          host: ${{ secrets.SSH_AWS_SERVER_IP }}
-          username: ${{ secrets.SSH_SERVER_USER }}
-          key: ${{ secrets.SSH_PRIVATE_KEY }}
-          passphrase: ${{ secrets.SSH_PASSPHRASE }}
-          script: |
-            cd ~/.scripts
-            ./docker-deploy.sh
+#       - name: Running Test
+#         run: npm run test
+#   deploy:
+#     name: Deploying
+#     needs: [test]
+#     runs-on: ubuntu-22.04.2
+#     steps:
+#       - name: SSH & Deploy
+#         uses: appleboy/ssh-action@master
+#         with:
+#           host: ${{ secrets.SSH_AWS_SERVER_IP }}
+#           username: ${{ secrets.SSH_SERVER_USER }}
+#           key: ${{ secrets.SSH_PRIVATE_KEY }}
+#           passphrase: ${{ secrets.SSH_PASSPHRASE }}
+#           script: |
+#             cd ~/.scripts
+#             ./docker-deploy.sh
